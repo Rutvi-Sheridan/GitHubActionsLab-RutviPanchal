@@ -1,7 +1,8 @@
 name: Multi Platform Workflow
 
 on:
-  pull
+  pull_request:
+    branches: [master]
 
 jobs:
 
