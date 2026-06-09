@@ -2,9 +2,7 @@
 name: Dependent Jobs Workflow
 
 on:
-  push:
-    branches:
-      - main
+  push
 
 jobs:
 
