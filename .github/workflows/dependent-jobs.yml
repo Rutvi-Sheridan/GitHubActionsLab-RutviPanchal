@@ -1,0 +1,61 @@
+
+name: Dependent Jobs Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Application
+        run: |
+          echo "Building application..."
+          sleep 5
+
+      - name: Build Complete
+        run: echo "Build completed successfully"
+
+
+  test:
+    name: Run Tests
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Execute Tests
+        run: |
+          echo "Running tests..."
+          sleep 5
+
+      - name: Test Complete
+        run: echo "All tests passed"
+
+
+  deploy:
+    name: Deploy Application
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy Project
+        run: |
+          echo "Deploying application..."
+          sleep 5
+
+      - name: Deployment Complete
+        run: echo "Deployment successful"
