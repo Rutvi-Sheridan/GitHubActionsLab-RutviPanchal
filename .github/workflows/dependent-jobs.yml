@@ -5,7 +5,7 @@ on:
   push
 
 jobs:
-
+    
   build:
     name: Build Application
     runs-on: ubuntu-latest
